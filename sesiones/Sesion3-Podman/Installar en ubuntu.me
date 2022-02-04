@@ -1,0 +1,15 @@
+ Instalacion Windows WSL2
+buscar en https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/
+NAME="Ubuntu"
+VERSION_ID="20.04"
+ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+
+curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/x${NAME}_${VERSION_ID}/Release.key -O Release.key
+
+
+curl -L "https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/x${NAME}_${VERSION_ID}/Release.key" | sudo apt-key add -
+sudo apt update
+sudo apt install podman
+
+Test:
+podman --VERSION_ID
