@@ -26,6 +26,7 @@ Trabajo: Crear un repositorio local:
 - Buscar imagen registry de docker.io
 - ejecutar imagen en puerto 5000
 (crea un local repo)
-podman run docker.io/library/registry
+Ejecutar applicacion
+podman run -dt -p 8080:80/tcp docker.io/library/httpd
 
-podman run -dt -p 5000:5000/tcp docker.io/library/registry
+/home/andres# podman inspect 9608975ad9e5 | grep "IPAddress"
