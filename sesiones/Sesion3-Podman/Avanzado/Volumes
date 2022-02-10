@@ -1,0 +1,27 @@
+root@Ernir:/home/andres# mkdir html
+root@Ernir:/home/andres# cd html
+root@Ernir:/home/andres/html# echo "Esto es un Ejemplo" > test1.txt
+root@Ernir:/home/andres/html# echo "Esto es un Ejemplo 2" > test3.txt
+
+podman run -dt --name web1 --volume /home/andres/html:/html:z nginx
+
+podman run -dt --name web3 --volume /home/andres/html:/html:z nginx
+podman run -dt --name web4 --volume /home/andres/html:/html:z nginx
+
+# Create volume
+
+podman volume create webvol
+podman run -dt --name web1 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web2 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web3 --volume webvol:/usr/share/nginx/html:z nginx
+
+#Move data to the volume
+
+podman cp /home/andres/html/text1.txt web1:/webvol:/usr/share/nginx/html
+
+# Disponibles fuera de la red
+podman run -dt --name web1 -p 8081:80 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web1 -p 8082:80 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web1 -p 8083:80 --volume webvol:/usr/share/nginx/html:z nginx
+
+# Buscar el Volumen.

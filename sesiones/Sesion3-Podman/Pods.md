@@ -40,3 +40,8 @@ curl -s http://localhost:8080
 echo $?sds
 
 Restart. Por que es persistente?
+
+# Generar un fichero Kubernetes
+podman generate kube
+podman play kube.yml
+

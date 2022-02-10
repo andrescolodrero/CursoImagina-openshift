@@ -1,7 +1,7 @@
 # Podman. 1
 
 COnfiguracion: /etc/containers
-
+// repositorio localq:wq
 comandos:
 podman image
 podman inspect
@@ -30,3 +30,15 @@ Ejecutar applicacion
 podman run -dt -p 8080:80/tcp docker.io/library/httpd
 
 /home/andres# podman inspect 9608975ad9e5 | grep "IPAddress"
+
+Ejercicio:
+Ejecutar dos contenedores (httpd o nginx)
+Verificar IP 
+Conectar contenedor 1 y verificar conexion con contenedor 2.
+
+
+podman exec -it 900244468ff1 /bin/bash
+
+
+(wget)
+NOMAD
