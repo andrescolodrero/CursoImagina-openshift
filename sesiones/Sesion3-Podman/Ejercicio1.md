@@ -40,5 +40,6 @@ Conectar contenedor 1 y verificar conexion con contenedor 2.
 podman exec -it 900244468ff1 /bin/bash
 
 
-(wget)
-NOMAD
+# Eliminar contenedores
+podman container prune --filter until="10m" 
+podman image prune --filter until="10m"

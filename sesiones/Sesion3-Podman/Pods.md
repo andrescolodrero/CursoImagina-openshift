@@ -37,7 +37,7 @@ podman exec -it (id) /bin/bash
 podman run -d --restart=always --pod=wordpress-pod -e WORDPRESS_DB_NAME="wp" -e WORDPRESS_DB_USER="wordpress" -e WORDPRESS_DB_PASSWORD="wppass" -e WORDPRESS_DB_HOST="127.0.0.1" --name wp-web wordpress
 
 curl -s http://localhost:8080
-echo $?sds
+echo $?
 
 Restart. Por que es persistente?
 

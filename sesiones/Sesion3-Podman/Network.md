@@ -12,11 +12,11 @@ podman port -a
 
 # MOnitor
 
-podman run -dt --name nginx1 --health-cmd 'curl http://localhost || exit 1' --health-interval=0 nginx
+podman run -dt --name nginx1 --health-cmd 'curl http://localhost || exit 1' --health-interval=10s nginx
 podman healthcheck run nginx1
 
 # Ejemplo fallo
-podman run -dt --name myubi7 --health-cmd 'grep 8 /etc/redhat-release || exit 1' --health-interval=ö0 ubi7:latest
+podman run -dt --name myubi7 --health-cmd 'grep 8 /etc/redhat-release || exit 1' --health-interval=0 ubi7:latest
 podman run -dt --name myubi8 --health-cmd 'grep 8 /etc/redhat-release || exit 1' --health-interval=0 ubi8:latest
 
  podman healthcheck run myubi8

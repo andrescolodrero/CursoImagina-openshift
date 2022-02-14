@@ -11,13 +11,14 @@ podman run -dt --name web4 --volume /home/andres/html:/html:z nginx
 # Create volume
 
 podman volume create webvol
-podman run -dt --name web1 --volume webvol:/usr/share/nginx/html:z nginx
-podman run -dt --name web2 --volume webvol:/usr/share/nginx/html:z nginx
-podman run -dt --name web3 --volume webvol:/usr/share/nginx/html:z nginx
 
 #Move data to the volume
 
-podman cp /home/andres/html/text1.txt web1:/webvol:/usr/share/nginx/html
+podman cp /home/andres/html/test1.txt web1:/webvol:/usr/share/nginx/html
+
+podman run -dt --name web11 -p 8081:80 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web22 -p 8082:80 --volume webvol:/usr/share/nginx/html:z nginx
+podman run -dt --name web33 -p 8083:80 --volume webvol:/usr/share/nginx/html:z nginx
 
 # Disponibles fuera de la red
 podman run -dt --name web1 -p 8081:80 --volume webvol:/usr/share/nginx/html:z nginx
@@ -25,3 +26,8 @@ podman run -dt --name web1 -p 8082:80 --volume webvol:/usr/share/nginx/html:z ng
 podman run -dt --name web1 -p 8083:80 --volume webvol:/usr/share/nginx/html:z nginx
 
 # Buscar el Volumen.
+
+# Limpieaza a fondo
+podman system prune --all --force && podman rmi --all
+podman rmi $(podman images -qa) -f
+
