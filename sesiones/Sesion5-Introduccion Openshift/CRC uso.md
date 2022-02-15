@@ -20,9 +20,6 @@ Crear un project
     oc new-app django-psql-example
     oc logs -f bc/django-psql-example
 
-Comprabar images:
+Comprobar images:
 oc get images
 
-Acceder a la imagen, rutas, etc
-
-Explicar cosas
