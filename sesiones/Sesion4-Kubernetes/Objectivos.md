@@ -4,12 +4,22 @@
 - Por que son necesarios
 - MInikube / Docker Desktop
 - Kubetecl
+# Comandos
+kubectl get pods --namespace kube-system
+kubectl config set-context --current --namespace=NAMESPACE
+ kubectl get pod  --all-namespaces
+ kubectl create namespace curso
+
+ kubectl delete pod
+
+
+
 
 # Practica
 1. Despliegue aplicacion y Servicio.
 
    Crear un servicio en Kcluster.
-   kubectl -f .\1Despliege.yaml apply
+   kubectl apply -f .\1Despliege.yaml 
    kubectl get deployments
    kubectl get pods
    kubectl -f \Service.yaml apply
