@@ -1,4 +1,5 @@
 import mysql.connector
+import socket
 import json
 from flask import Flask
 
@@ -6,6 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+  print(socket.gethostname())
   return 'Hello, Docker!'
 
 @app.route('/widgets')
@@ -55,6 +57,13 @@ def db_init():
 
   cursor.execute("DROP TABLE IF EXISTS widgets")
   cursor.execute("CREATE TABLE widgets (name VARCHAR(255), description VARCHAR(255))")
+
+  add_widget = ("INSERT INTO widgets "
+               "(name, description) "
+               "VALUES ('Exemplo 1', 'Description 1')")
+  
+  cursor.execute(add_widget)
+
   cursor.close()
 
   return 'init database'
