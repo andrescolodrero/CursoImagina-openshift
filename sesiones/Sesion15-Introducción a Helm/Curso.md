@@ -44,3 +44,20 @@ newvaues.yaml
  helm install demo ./demo -f ./demo/newvalues.yaml --dry-run
 
  ## Lenguaje de Charts
+
+ ## Crear Nuevos Chart
+ helm create NOMBRE
+
+ - Buscar un ejemplo de Servicio (ejercicio 1)
+ - aplicar Cambios
+ - crear directorio template
+ - crear: Chart.yaml
+ - crear values
+ (from root directory)
+helm show values blog
+ helm install blog blog --dry-run
+
+ # Ejercicio: 
+ 1. Modificar otros valores como puerto, etc
+ 2. UPgrade
+ 
