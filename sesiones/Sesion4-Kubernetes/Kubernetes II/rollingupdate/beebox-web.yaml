@@ -1,0 +1,44 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fake-service
+  labels:
+    app: fake-service
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: fake-service
+
+  strategy:
+    strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: fake-service 
+    spec:
+      containers:
+      - image: nicholasjackson/fake-service:v0.23.1 
+        name: fake-service
+        ports:
+        - containerPort: 9090
+          name: fake-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fake-service-svc
+spec:
+  selector:
+    app: fake-service
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: ClusterIP
+
+        
+     

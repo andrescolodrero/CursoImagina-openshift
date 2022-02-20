@@ -35,6 +35,9 @@ kubectl config set-context --current --namespace=NAMESPACE
 5. Rollback
 6. Enrutamiento
 7. Persistecia de Datos
+8. 2 Container por pod
+kubectl exec -it two-containers -c nginx-container -- /bin/bash
+
 
 
 
