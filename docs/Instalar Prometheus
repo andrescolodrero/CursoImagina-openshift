@@ -1,0 +1,30 @@
+En la sesión 6, hicimos una instalación de "Prometheus" en nuestro cluster local de Kubernetes
+Mas información sobre Prometheus: https://prometheus.io/
+
+Instalación
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install my-kube-prometheus-stack prometheus-community/kube-prometheus-stack --version 32.2.1
+
+Esperar un minute para que todos los pods esten activos.
+Si teneís estono pasa nada:
+my-kube-prometheus-stack-prometheus-node-exporter-vflht        0/1     CrashLoopBackOff   52 (2m33s ago)   21h
+
+Normalmente los Helm Charts no vien configurados para usar tu propio LoadBalancer/Ingress. Para probar el Deployment basta con:
+kubectl port-forward svc/my-kube-prometheus-stack-grafana 8088:80
+
+ACCEDER a la aplicacion.
+PAra encontrar usuario y password, hay que mirar en los secrets de Kubernetes.
+ kubectl get secrets my-kube-prometheus-stack-grafana  -o json
+
+ Vais a tener algo como:
+ apiVersion": "v1",
+    "data": {
+        "admin-password": "cHJvbS1vcGVyYXRvcg==",
+        "admin-user": "YWRtaW4=",
+        "ldap-toml": ""
+    },
+
+Esos valores estan en  código Base 64. Para  decodificarlo podeís usar comandos ne linux como "base64" o:
+https://www.base64decode.org/
+
