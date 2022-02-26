@@ -18,4 +18,4 @@ spec:
       - name: {{ .Values.blog.name }}
         image: {{ .Values.blog.image }}
         ports:
-        - containerPort: 2336
+        - containerPort: {{ .Values.service.containerPort }}

@@ -1,8 +1,10 @@
 service:
   name: blog
-  type: NodePort
+  type: LoadBalancer
+  port: 8000
+  containerPort: 80
 blog:
   name: blog
-  replicas: 1
-  image: ghost:2.6-alpine
+  replicas: 2
+  image: nginx:1.21.6
 
