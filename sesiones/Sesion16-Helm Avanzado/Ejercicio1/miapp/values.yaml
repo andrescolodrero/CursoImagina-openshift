@@ -1,0 +1,12 @@
+global:
+
+service:
+  name: miweb
+  type: LoadBalancer
+  port: 8000
+  containerPort: 80
+miweb:
+  name: miweb
+  replicas: 2
+  image: nginx:latest
+

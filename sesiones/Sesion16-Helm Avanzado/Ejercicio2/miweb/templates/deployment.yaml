@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.miweb.name }}
+  labels:
+    app: {{ .Values.miweb.name}}
+spec:
+  replicas: {{ .Values.miweb.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.miweb.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.miweb.name }}
+    spec:
+      containers:
+      - name: {{ .Values.miweb.name }}
+        image: {{ .Values.miweb.image }}
+        ports:
+        - containerPort: {{ .Values.service.containerPort }}
