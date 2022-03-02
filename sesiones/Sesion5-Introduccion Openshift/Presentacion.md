@@ -1,3 +1,0 @@
-- Introduccion
-- Distros y arquitectura
-- Minishift / CRD

@@ -1,0 +1,26 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ejemplo1
+spec:
+  host: ejemplo-curso.apps-crc.testing
+  path: "/"
+  to:
+    kind: Service
+    name: docker-hello-world-svc
+  port: 
+    targetPort: 80
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ejemplo2
+spec:
+  host: ejemplo-curso.apps-crc.testing
+  path: "/hello"
+  to:
+    kind: Service
+    name: hello-world-http-svc
+  port: 
+    targetPort: 8089
+  

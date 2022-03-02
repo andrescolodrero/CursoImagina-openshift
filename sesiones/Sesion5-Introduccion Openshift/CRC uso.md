@@ -8,12 +8,15 @@ crc config get memorty
 
 
 Acceder
-crc oc-enc
+crc oc-env
 
+# Comenzar la UI
+crc console
+
+# Obtener Credenciales de Access
 crc console --credentials
-(COnfigurar oc command con environment)
 
-oc login -u kubeadmin -p 5jwwD-m7sJ6-ak7PI-rorww
+oc login -u kubeadmin -p jwwD-m7sJ6-ak7PI-rorww
 
 Crear un project
   oc new-project my-example
@@ -23,3 +26,11 @@ Crear un project
 Comprobar images:
 oc get images
 
+# Probar Mismos COmandos con Kubectl
+kubectl cluster-info
+kubectl get pods
+
+# Si habeís perdido Kubectl, installar
+ADMIN: choco install kubernetes-cli
+
+# OC DELETE APPoc

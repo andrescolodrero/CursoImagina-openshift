@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-http
+  labels:
+    app: hello-world-http
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-http
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-world-http
+    spec:
+      containers:
+      - name: hello-world-http
+        image: strm/helloworld-http:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-http-svc
+spec:
+  selector:
+    app: hello-world-http
+  ports:
+    - port: 8089
+      targetPort: 80
+  type: ClusterIP

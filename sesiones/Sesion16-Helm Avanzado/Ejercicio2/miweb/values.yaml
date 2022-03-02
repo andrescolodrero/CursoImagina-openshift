@@ -1,6 +1,6 @@
 service:
   name: miweb
-  type: LoadBalancer
+  type: ClusterIP
   port: 8000
   containerPort: 80
 miweb:
