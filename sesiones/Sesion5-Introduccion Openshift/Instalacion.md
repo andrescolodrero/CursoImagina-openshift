@@ -10,3 +10,12 @@ Una vez lo teneís, podeis seguir los pasos aqui:
 https://www.youtube.com/watch?v=yp8LXEKlGSQ&t=170s
 
 Durante la próxima semana podemos ir depurando quien tiene problemas.
+
+
+# Notas
+Si necesitais reinstalar:
+1. Eliminar CRC de "applicaciones"
+2. Eliminar maquina virtual en Hyper-V si es necesario
+3. Eliminar el contenido de c:\users\(mi user)\.crc
+crc setup
+crc start
