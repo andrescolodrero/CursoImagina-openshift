@@ -1,0 +1,18 @@
+kind: User
+apiVersion: user.openshift.io/v1
+metadata:
+  name: donald
+  uid: 213ac355-52d5-48de-ae49-ab9388c97b99
+  resourceVersion: '1135493'
+  creationTimestamp: '2022-03-08T09:57:22Z'
+  managedFields:
+    - manager: oauth-server
+      operation: Update
+      apiVersion: user.openshift.io/v1
+      time: '2022-03-08T09:57:22Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:identities': {}
+identities:
+  - 'developer:donald'
+groups: null
