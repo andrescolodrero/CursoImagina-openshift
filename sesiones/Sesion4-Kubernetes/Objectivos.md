@@ -38,6 +38,13 @@ kubectl config set-context --current --namespace=NAMESPACE
 8. 2 Container por pod
 kubectl exec -it two-containers -c nginx-container -- /bin/bash
 
+1. Eliminar mysql y recrearlo
+2. Inspecionar los volumenes
+3. Get pv / pvc
+4. Cambiar version wordpress y mysql
+
+
+
 
 
 

@@ -12,7 +12,7 @@ spec:
         - path: /
           pathType: Prefix
           backend:
-            service:
+            service:                                
               name: docker-hello-world-svc
               port:
                 number: 8088
@@ -23,11 +23,5 @@ spec:
               name: hello-world-http-svc 
               port:
                 number: 8089
-        - path: /fake-service
-          pathType: Prefix
-          backend:
-            service:
-              name: fake-service-svc 
-              port:
-                number: 9090
+        
   

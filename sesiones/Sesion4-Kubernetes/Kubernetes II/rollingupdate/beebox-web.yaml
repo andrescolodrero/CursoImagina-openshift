@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: fake-service
-
   strategy:
     strategy:
     type: RollingUpdate
@@ -22,7 +21,7 @@ spec:
         app: fake-service 
     spec:
       containers:
-      - image: nicholasjackson/fake-service:v0.23.1 
+      - image: nicholasjackson/fake-service:vm-v1.10.7-v0.22.7
         name: fake-service
         ports:
         - containerPort: 9090
