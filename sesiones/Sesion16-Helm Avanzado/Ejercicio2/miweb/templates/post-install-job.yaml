@@ -25,4 +25,4 @@ spec:
      containers:
      - name: pre-install-job
        image: busybox
-       command: ['sh', '-c', 'echo pre-install Job Pod is Running ; sleep 10']
+       command: ['sh', '-c', 'echo pre-install Job Pod is Running ; sleep 2']

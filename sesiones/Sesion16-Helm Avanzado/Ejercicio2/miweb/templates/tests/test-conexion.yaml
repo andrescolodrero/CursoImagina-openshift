@@ -3,7 +3,8 @@ kind: Pod
 metadata:
   name: "{{ .Values.miweb.name }}-credentials-test"
   annotations:
-    "helm.sh/hook": test
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": test-failed
 spec:
   containers:
   - name: wget
