@@ -1,0 +1,33 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+spec:
+  outputs:
+   - name: fluentd-server-secure
+     type: fluentdForward
+     url: 'tls://fluntdserver.security.example.com:24224' # Substitute with FQDN or IP address
+     secret:
+        name: secure-forward
+   - name: fluentd-server-insecure
+     type: fluentdForward
+     url: 'tcp://fluntdserver.home.example.com:24224' # Substitute with FQDN or IP address
+  pipelines:
+   - name: container-logs
+     inputRefs:
+     - application
+     outputRefs:
+     - default
+     - fluentd-server-secure
+     - fluentd-server-insecure
+   - name: infra-logs
+     inputRefs:
+     - infrastructure
+     outputRefs:
+     - default
+   - name: audit-logs
+     inputRefs:
+     - audit
+     outputRefs:
+     - default

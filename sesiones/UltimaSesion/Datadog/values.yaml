@@ -1,0 +1,7 @@
+datadog:
+  # datadog.apiKey -- Your Datadog API key
+  # ref: https://app.datadoghq.com/account/settings#agent/kubernetes
+
+  logs:
+    enabled: true
+    containerCollectAll: true
