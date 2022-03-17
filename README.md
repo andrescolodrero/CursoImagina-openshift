@@ -1,3 +1,10 @@
-# CursoImagina-openshift
+## Curso Infrastructura Cloud
 
-Repositorio para ejercicios y código.
+Contenido del Curso para "Infrastructura en Cloud"
+
+- Docker
+- Podman
+- Kubernernetes
+- HELM
+- Openshift
+- Ansible
